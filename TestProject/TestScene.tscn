@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6co2m4k2txll"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgq873ufeqyei" path="res://HouseTest.obj" id="1_56vb4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ifjsd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ajkwd"]
+sky_material = SubResource("ProceduralSkyMaterial_ifjsd")
+
+[sub_resource type="Environment" id="Environment_rjy3o"]
+background_mode = 2
+sky = SubResource("Sky_ajkwd")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.0013
+volumetric_fog_density = 0.033
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rjy3o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.976867, -0.0316066, 0.211498, 0.00679656, 0.993106, 0.117019, -0.213739, -0.112875, 0.970348, 9.47832, 3.30443, -8.94905)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+transform = Transform3D(0.7956, -0.31978, 0.514549, -1.89641e-16, 0.84934, 0.527846, -0.605822, -0.419954, 0.675736, 0.928878, 1.30251, -1.54997)
+
+[node name="HouseTest" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0934627, 0, -0.0355629, 0, 0.1, 0, 0.0355629, 0, 0.0934627, 50.473, 3.8147e-06, -47.751)
+mesh = ExtResource("1_56vb4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.64025, 9.71464e-06, -0.768167, -1.46052e-05, 1, 4.73406e-07, 0.768167, 1.09161e-05, 0.64025, 50.473, 3.8147e-06, -47.751)
